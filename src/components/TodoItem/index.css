@@ -1,0 +1,11 @@
+.user-name {
+  color: black;
+  text-align: left;
+  font-size: 20px;
+}
+.ch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+}
