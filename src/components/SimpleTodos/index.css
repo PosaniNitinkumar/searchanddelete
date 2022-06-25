@@ -14,3 +14,9 @@
   width: 90%;
   border-radius: 25px;
 }
+.button {
+  background-color: white;
+  color: #ff0b37;
+  border: 2px solid #ff0b37;
+  border-radius: 5px;
+}

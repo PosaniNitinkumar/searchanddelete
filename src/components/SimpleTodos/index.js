@@ -1,3 +1,5 @@
+import {Component} from 'react'
+
 import './index.css'
 
 import TodoItem from '../TodoItem'
@@ -37,16 +39,38 @@ const initialTodosList = [
   },
 ]
 
-const SimpleTodos = () => (
-  <div className="list-container">
-    <div className="list-container-2">
-      <h1 className="title">Simple Todos</h1>
-      <ul>
-        {initialTodosList.map(eachItem => (
-          <TodoItem userDetails={eachItem} />
-        ))}
-      </ul>
-    </div>
-  </div>
-)
+class SimpleTodos extends Component {
+  state = {
+    usersDetailsList: initialTodosList,
+  }
+
+  Delete = id => {
+    const {usersDetailsList} = this.state
+    const filteredUsersData = usersDetailsList.filter(each => each.id !== id)
+    this.setState({
+      usersDetailsList: filteredUsersData,
+    })
+  }
+
+  // eslint-disable-next-line react/require-render-return
+  render() {
+    const {usersDetailsList} = this.state
+    return (
+      <div className="list-container">
+        <div className="list-container-2">
+          <h1 className="title">Simple Todos</h1>
+          <ul>
+            {usersDetailsList.map(eachItem => (
+              <TodoItem
+                key={eachItem.id}
+                userDetails={eachItem}
+                Delete={this.Delete}
+              />
+            ))}
+          </ul>
+        </div>
+      </div>
+    )
+  }
+}
 export default SimpleTodos
